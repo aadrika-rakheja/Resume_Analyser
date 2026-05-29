@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import './variables.css';
+
+/* Global Reset & Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: rgb(var(--bg-primary-rgb));
+  color: rgb(var(--text-primary-rgb));
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--bg-primary-rgb), 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--border-glass-rgb), 0.15);
+  border-radius: 99px;
+  transition: var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--accent-primary-rgb), 0.4);
+}
+
+/* Common Interactive Form Inputs */
+input, textarea, select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(var(--bg-tertiary-rgb), 0.3);
+  border: 1px solid rgba(var(--border-glass-rgb), var(--border-glass-alpha));
+  border-radius: 8px;
+  color: rgb(var(--text-primary-rgb));
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-primary);
+  background: rgba(var(--bg-tertiary-rgb), 0.5);
+  box-shadow: var(--shadow-glow);
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(var(--text-secondary-rgb));
+  margin-bottom: 6px;
+}
+
+button {
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-secondary);
+}
+
+/* Glow Accent Elements */
+.glow-accent {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.15) 0%, rgba(var(--accent-secondary-rgb), 0.05) 50%, rgba(0,0,0,0) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s var(--transition-smooth) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}

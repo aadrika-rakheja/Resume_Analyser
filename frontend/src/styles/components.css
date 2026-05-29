@@ -1,0 +1,304 @@
+/* UI Components Styles (UploadZone, ChatBot, CircularProgress, Toast, Cards) */
+
+/* 1. Drag and Drop UploadZone */
+.upload-zone-container {
+  border: 2px dashed rgba(var(--border-glass-rgb), 0.15);
+  background: rgba(var(--bg-secondary-rgb), 0.4);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-zone-container:hover, .upload-zone-container.dragging {
+  border-color: var(--accent-primary);
+  background: rgba(var(--accent-primary-rgb), 0.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.upload-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-spring);
+}
+
+.upload-zone-container:hover .upload-icon-wrapper {
+  transform: translateY(-5px) scale(1.1);
+  color: var(--accent-secondary);
+  background: rgba(var(--accent-secondary-rgb), 0.1);
+}
+
+.upload-progress-track {
+  width: 100%;
+  max-width: 320px;
+  height: 6px;
+  background: rgba(var(--border-glass-rgb), 0.1);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.upload-progress-fill {
+  height: 100%;
+  background: var(--grad-hero);
+  width: 0%;
+  border-radius: 99px;
+  transition: width var(--transition-fast);
+}
+
+/* 2. ChatBot Floating Assistant */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chatbot-toggle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--grad-hero);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(var(--accent-primary-rgb), 0.3);
+  transition: var(--transition-spring);
+  border: none;
+}
+
+.chatbot-toggle-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 12px 40px rgba(var(--accent-primary-rgb), 0.4);
+}
+
+.chatbot-panel {
+  width: 380px;
+  height: 500px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeInUp 0.4s var(--transition-spring) forwards;
+}
+
+@media (max-width: 480px) {
+  .chatbot-panel {
+    width: calc(100vw - 40px);
+    height: 450px;
+    right: 20px;
+  }
+}
+
+.chatbot-header {
+  padding: 16px 20px;
+  background: var(--grad-hero);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px 16px 0 0;
+}
+
+.chatbot-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.chat-bubble.bot {
+  background: rgba(var(--bg-tertiary-rgb), 0.4);
+  border: 1px solid rgba(var(--border-glass-rgb), var(--border-glass-alpha));
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-bubble.user {
+  background: var(--accent-primary);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px 10px 20px;
+}
+
+.chat-suggestion-tag {
+  background: rgba(var(--bg-tertiary-rgb), 0.3);
+  border: 1px solid rgba(var(--border-glass-rgb), var(--border-glass-alpha));
+  border-radius: 99px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.chat-suggestion-tag:hover {
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  border-color: var(--accent-primary);
+}
+
+.chatbot-input-area {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(var(--border-glass-rgb), var(--border-glass-alpha));
+  display: flex;
+  gap: 10px;
+}
+
+.chatbot-send-btn {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chatbot-send-btn:hover {
+  background: var(--accent-secondary);
+}
+
+/* 3. Circular Score Progress Gauge */
+.circular-gauge-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-svg {
+  transform: rotate(-90deg);
+}
+
+.gauge-bg {
+  fill: none;
+  stroke: rgba(var(--border-glass-rgb), 0.08);
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: url(#scoreGradient);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gauge-text {
+  position: absolute;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gauge-label {
+  font-size: 0.65rem;
+  color: rgb(var(--text-secondary-rgb));
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* 4. Sliding Toast Notification */
+.toast-container {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 320px;
+  max-width: 450px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  animation: slideInDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.toast.success {
+  background: rgba(16, 185, 129, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.toast.error {
+  background: rgba(239, 68, 68, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.toast-close-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,138 @@
+/* Authentication Page Styles (Login & Register) */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgb(var(--bg-primary-rgb));
+  overflow: hidden;
+  padding: 20px;
+}
+
+.auth-bg-glow-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.15) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(60px);
+  z-index: 1;
+}
+
+.auth-bg-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-secondary-rgb), 0.12) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(60px);
+  z-index: 1;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth-logo-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.auth-logo-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--grad-hero);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 24px rgba(var(--accent-primary-rgb), 0.3);
+}
+
+.auth-logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: var(--grad-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth-header {
+  text-align: center;
+}
+
+.auth-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.auth-header p {
+  color: rgb(var(--text-secondary-rgb));
+  font-size: 0.9rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-submit-btn {
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.auth-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgb(var(--text-secondary-rgb));
+}
+
+.auth-footer a {
+  font-weight: 600;
+}
+
+/* Spinner for loading state */
+.btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}

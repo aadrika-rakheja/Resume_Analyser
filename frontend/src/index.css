@@ -1,0 +1,6 @@
+/* Index CSS - Styles are loaded from modular CSS files inside App.jsx */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #0B0F19; /* Default to dark theme background on extremely slow load */
+}
